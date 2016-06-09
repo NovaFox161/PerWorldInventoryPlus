@@ -1,0 +1,7 @@
+name: PerWorldInventoryPlus
+version: 1.0.0
+description: Makes inventories per world and does other inventory related functions.
+author: Shades161
+website: http://dev.bukkit.org/bukkit-plugins/perworldinventoryplus/
+
+main: com.cloudcraftgaming.perworldinventoryplus.Main
