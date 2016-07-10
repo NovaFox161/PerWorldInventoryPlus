@@ -1,5 +1,9 @@
 package com.cloudcraftgaming.perworldinventoryplus;
 
+import com.cloudcraftgaming.perworldinventoryplus.listeners.GameModeChangeListener;
+import com.cloudcraftgaming.perworldinventoryplus.listeners.JoinListener;
+import com.cloudcraftgaming.perworldinventoryplus.listeners.QuitListener;
+import com.cloudcraftgaming.perworldinventoryplus.utils.FileManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -15,6 +19,15 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
+        //Register listeners
+        getServer().getPluginManager().registerEvents(new JoinListener(this), this);
+        getServer().getPluginManager().registerEvents(new QuitListener(this), this);
+        getServer().getPluginManager().registerEvents(new GameModeChangeListener(this), this);
+
+        //Create and do all file things here
+        FileManager.createConfig();
+
+        FileManager.checkFileVersions();
 
     }
 }
